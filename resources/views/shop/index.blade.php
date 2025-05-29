@@ -1,6 +1,13 @@
 @extends('layouts.app')
 
-@section('title', 'Shop - Premium Spices')
+@section('title', 'Shop Premium Organic Spices Online | Flavearth - Authentic Indian Spices')
+@section('description', 'Browse and buy premium organic spices, traditional seasonings, and natural food products. Wide selection of authentic Indian spices including turmeric, red chili, garam masala, and more. Free delivery on orders above ₹500.')
+@section('keywords', 'buy organic spices online, premium spice shop, Indian spices online, turmeric powder buy, red chili powder, authentic spices, organic food products, spice store, natural seasonings')
+
+@section('og_title', 'Shop Premium Organic Spices Online | Flavearth')
+@section('og_description', 'Browse and buy premium organic spices and natural food products. Wide selection of authentic Indian spices with free delivery.')
+@section('twitter_title', 'Shop Premium Organic Spices | Flavearth')
+@section('twitter_description', 'Browse and buy premium organic spices and natural food products. Authentic Indian spices with free delivery.')
 
 @section('content')
 <!-- Shop Hero Section -->
@@ -129,13 +136,8 @@
                                 <!-- Price & Add to Cart -->
                                 <div class="d-flex justify-content-between align-items-center mt-auto">
                                     <div class="product-price">
-                                        <span class="h5 fw-bold text-success mb-0">{{ $product->price_range }}</span>
-                                        @if($product->defaultVariant && $product->defaultVariant->original_price && $product->defaultVariant->original_price > $product->defaultVariant->price)
-                                        <div class="small text-muted">
-                                            <span class="text-decoration-line-through">₹{{ number_format($product->defaultVariant->original_price, 2) }}</span>
-                                            <span class="badge bg-danger ms-1">{{ $product->defaultVariant->discount_percentage }}% OFF</span>
-                                        </div>
-                                        @endif
+                                        <span class="h5 fw-bold text-success mb-0">{{ $product->display_250gm_price }}</span>
+                                        <small class="text-muted d-block">250gm</small>
                                     </div>
                                     
                                     <div class="product-actions">

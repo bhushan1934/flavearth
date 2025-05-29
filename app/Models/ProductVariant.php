@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Models\OrderItem;
 
 class ProductVariant extends Model
 {
@@ -35,6 +36,11 @@ class ProductVariant extends Model
     public function cartItems()
     {
         return $this->hasMany(CartItem::class, 'variant_id');
+    }
+    
+    public function orderItems()
+    {
+        return $this->hasMany(OrderItem::class, 'variant_id');
     }
 
     public function getFormattedPriceAttribute()

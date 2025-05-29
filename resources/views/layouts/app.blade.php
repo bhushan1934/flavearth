@@ -3,14 +3,112 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@yield('title', 'Flavearth')</title>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    
+    <!-- SEO Meta Tags -->
+    <title>@yield('title', 'Flavearth - Premium Organic Spices & Natural Food Products Online | Official Store')</title>
+    <meta name="description" content="@yield('description', 'Flavearth - Official online store for premium organic spices, natural food products, and traditional seasonings. Shop authentic, high-quality spices sourced directly from farmers. Fast delivery across India.')">
+    <meta name="keywords" content="@yield('keywords', 'Flavearth, Flavearth spices, Flavearth official, organic spices, premium spices, natural food products, traditional seasonings, authentic spices, spice store online, organic food, turmeric, red chili, garam masala, spice delivery India')">
+    <meta name="author" content="Flavearth">
+    <meta name="robots" content="@yield('robots', 'index, follow')">
+    <meta name="google-site-verification" content="your-google-verification-code" />
+    <link rel="canonical" href="{{ url()->current() }}">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="@yield('og_title', 'Flavearth - Premium Organic Spices & Natural Food Products')">
+    <meta property="og:description" content="@yield('og_description', 'Discover premium organic spices and natural food products at Flavearth. Authentic, high-quality spices sourced directly from farmers.')">
+    <meta property="og:image" content="@yield('og_image', asset('images/categories/hero.png'))">
+    <meta property="og:url" content="{{ url()->current() }}">
+    <meta property="og:type" content="@yield('og_type', 'website')">
+    <meta property="og:site_name" content="Flavearth">
+    <meta property="og:locale" content="en_IN">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="@yield('twitter_title', 'Flavearth - Premium Organic Spices')">
+    <meta name="twitter:description" content="@yield('twitter_description', 'Premium organic spices and natural food products. Authentic quality, direct from farmers.')">
+    <meta name="twitter:image" content="@yield('twitter_image', asset('images/categories/hero.png'))">
+    
+    <!-- Additional SEO Meta Tags -->
+    <meta name="theme-color" content="#059669">
+    <meta name="msapplication-TileColor" content="#059669">
+    <meta name="application-name" content="Flavearth">
+    <meta name="apple-mobile-web-app-title" content="Flavearth">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    
+    <!-- Favicon - Green Leaf -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3e%3cpath d='M17 8C8 10 5.9 16.17 3.82 21.34l1.89.66C7.49 17.67 9.4 12.03 17 10a1 1 0 000-2z' fill='%23059669'/%3e%3c/svg%3e">
+    <link rel="apple-touch-icon" href="data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3e%3cpath d='M17 8C8 10 5.9 16.17 3.82 21.34l1.89.66C7.49 17.67 9.4 12.03 17 10a1 1 0 000-2z' fill='%23059669'/%3e%3c/svg%3e">
+    
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Flavearth",
+        "alternateName": ["Flavearth Spices", "Flavearth Organic", "Flavearth Official"],
+        "description": "Flavearth - Premium organic spices and natural food products sourced directly from farmers. Official online store for authentic Indian spices.",
+        "url": "{{ url('/') }}",
+        "logo": "{{ asset('images/categories/logo.png') }}",
+        "image": "{{ asset('images/categories/hero.png') }}",
+        "brand": {
+            "@type": "Brand",
+            "name": "Flavearth"
+        },
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "contactType": "Customer Service",
+            "availableLanguage": ["English", "Hindi"]
+        },
+        "address": {
+            "@type": "PostalAddress",
+            "addressCountry": "IN"
+        },
+        "sameAs": [
+            "https://www.facebook.com/flavearth",
+            "https://www.instagram.com/flavearth",
+            "https://twitter.com/flavearth"
+        ],
+        "foundingDate": "2024",
+        "founder": {
+            "@type": "Person",
+            "name": "Flavearth Team"
+        },
+        "numberOfEmployees": "10-50",
+        "areaServed": {
+            "@type": "Country",
+            "name": "India"
+        },
+        "keywords": "Flavearth, Flavearth spices, organic spices, premium spices, Indian spices",
+        "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Flavearth Spices and Natural Food Products",
+            "itemListElement": [
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Product",
+                        "name": "Flavearth Organic Spices",
+                        "brand": "Flavearth",
+                        "category": "Food & Beverages"
+                    }
+                }
+            ]
+        }
+    }
+    </script>
+    
+    @stack('structured_data')
     @stack('styles')
     <style>
-        body {
+        html, body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow-x: hidden;
+            max-width: 100%;
         }
         .hero-section {
             background-color: #f8f9fa;
@@ -53,7 +151,7 @@
 
         /* Enhanced Header Responsive Styles */
         .responsive-navbar {
-            min-height: 80px;
+            min-height: 85px;
             position: relative;
         }
 
@@ -65,22 +163,21 @@
         }
 
         .brand-logo {
-            width: 150px;
-            height: 80px;
-            border-radius: 50%;
+            height: 65px;
+            width: auto;
+            object-fit: contain;
             transition: transform 0.3s ease;
         }
 
         .brand-logo:hover {
-            transform: scale(1.1);
+            transform: scale(1.05);
         }
 
-        .brand-text {
-            font-size: 1.5rem;
-            font-weight: 800;
-            color: #28a745;
-            margin: 0;
-            display: none;
+        
+        @media (min-width: 768px) {
+            .brand-logo {
+                height: 70px;
+            }
         }
 
         .navbar-toggler {
@@ -133,8 +230,14 @@
         .icons-container {
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 5px;
             margin-left: auto;
+        }
+        
+        @media (min-width: 768px) {
+            .icons-container {
+                gap: 8px;
+            }
         }
 
         .header-icon {
@@ -174,18 +277,12 @@
         /* Mobile Responsive Styles */
         @media (max-width: 991.98px) {
             .responsive-navbar {
-                min-height: 70px;
+                min-height: 75px;
                 padding: 10px 0;
             }
 
-            .brand-text {
-                display: block;
-                font-size: 1.3rem;
-            }
-
             .brand-logo {
-                width: 45px;
-                height: 45px;
+                height: 60px;
             }
 
             .navbar-collapse {
@@ -212,6 +309,9 @@
             }
 
             .icons-container {
+                position: static;
+                transform: none;
+                width: auto;
                 justify-content: center;
                 margin: 20px 0 10px 0;
                 padding-top: 15px;
@@ -239,17 +339,12 @@
 
         @media (max-width: 767.98px) {
             .responsive-navbar {
-                min-height: 65px;
+                min-height: 70px;
                 padding: 8px 0;
             }
 
             .brand-logo {
-                width: 40px;
-                height: 40px;
-            }
-
-            .brand-text {
-                font-size: 1.2rem;
+                height: 55px;
             }
 
             .navbar-collapse {
@@ -274,17 +369,12 @@
 
         @media (max-width: 575.98px) {
             .responsive-navbar {
-                min-height: 60px;
+                min-height: 65px;
                 padding: 5px 0;
             }
 
-            .brand-text {
-                font-size: 1.1rem;
-            }
-
             .brand-logo {
-                width: 35px;
-                height: 35px;
+                height: 50px;
             }
 
             .navbar-collapse {
@@ -409,14 +499,13 @@
     <!-- Enhanced Responsive Header -->
     <header class="bg-white shadow-sm sticky-top">
         <div class="container">
-            <nav class="navbar navbar-expand-lg navbar-light responsive-navbar">
+            <nav class="navbar navbar-expand-lg navbar-light responsive-navbar px-3 px-md-0">
                 <!-- Brand Logo -->
                 <a href="{{ route('home') }}" class="navbar-brand-logo">
                     <img src="{{ asset('images/categories/logo.png') }}" 
                          class="brand-logo" 
                          alt="Flavearth Logo"
-                         onerror="this.src='https://via.placeholder.com/50x50/28a745/FFFFFF?text=F'">
-                    <span class="brand-text">Flavearth</span>
+                         onerror="this.src='https://via.placeholder.com/70x70/28a745/FFFFFF?text=F'">
                 </a>
 
                 <!-- Mobile Menu Toggle -->
@@ -432,6 +521,9 @@
 
                 <!-- Navigation Menu -->
                 <div class="collapse navbar-collapse" id="navbarNav">
+                    <!-- Empty spacer for balance -->
+                    <div class="navbar-spacer d-none d-lg-block" style="width: 200px;"></div>
+                    
                     <!-- Navigation Links -->
                     <ul class="navbar-nav">
                         <li class="nav-item {{ request()->routeIs('home') ? 'active' : '' }}">
@@ -470,12 +562,6 @@
                                 <i class="fas fa-shopping-cart"></i>
                                 @if(auth()->user()->cart && auth()->user()->cart->items->count() > 0)
                                     <span class="badge">{{ auth()->user()->cart->items->count() }}</span>
-                                @endif
-                            </a>
-                            <a href="{{ route('wishlist') }}" class="header-icon" title="Wishlist" aria-label="Wishlist">
-                                <i class="fas fa-heart"></i>
-                                @if(auth()->user()->wishlist && auth()->user()->wishlist->count() > 0)
-                                    <span class="badge">{{ auth()->user()->wishlist->count() }}</span>
                                 @endif
                             </a>
                             <div class="dropdown">
@@ -805,13 +891,33 @@
         });
     }
     
+    // Store pending action
+    let pendingAction = null;
+    
     // Cart and Wishlist Functions
-    function addToCart(productId, quantity = 1) {
+    function addToCart(productId, quantity = 1, variantId = null) {
         if (!isAuthenticated) {
-            // Show login modal
-            $('#redirectAfterLogin').val(window.location.href);
-            $('#loginModal').modal('show');
+            // Store the pending action
+            pendingAction = {
+                type: 'addToCart',
+                productId: productId,
+                quantity: quantity,
+                variantId: variantId
+            };
+            
+            // Show login modal using Bootstrap 5 JavaScript API
+            const loginModal = new bootstrap.Modal(document.getElementById('loginModal'));
+            loginModal.show();
             return;
+        }
+        
+        const payload = {
+            product_id: productId,
+            quantity: quantity
+        };
+        
+        if (variantId) {
+            payload.variant_id = variantId;
         }
         
         fetch('{{ route("cart.add") }}', {
@@ -821,10 +927,7 @@
                 'X-CSRF-TOKEN': csrfToken,
                 'Accept': 'application/json'
             },
-            body: JSON.stringify({
-                product_id: productId,
-                quantity: quantity
-            })
+            body: JSON.stringify(payload)
         })
         .then(response => response.json())
         .then(data => {
@@ -843,9 +946,14 @@
     
     function addToWishlist(productId) {
         if (!isAuthenticated) {
-            // Show login modal
-            $('#redirectAfterLogin').val(window.location.href);
-            $('#loginModal').modal('show');
+            // Store the pending action
+            pendingAction = {
+                type: 'addToWishlist',
+                productId: productId
+            };
+            // Show login modal using Bootstrap 5 JavaScript API
+            const loginModal = new bootstrap.Modal(document.getElementById('loginModal'));
+            loginModal.show();
             return;
         }
         
@@ -905,6 +1013,81 @@
         }
     }
     
+    function buyNow(productId, quantity = 1, variantId = null) {
+        if (!isAuthenticated) {
+            // Store the pending action
+            pendingAction = {
+                type: 'buyNow',
+                productId: productId,
+                quantity: quantity,
+                variantId: variantId
+            };
+            // Show login modal using Bootstrap 5 JavaScript API
+            const loginModal = new bootstrap.Modal(document.getElementById('loginModal'));
+            loginModal.show();
+            return;
+        }
+        
+        // Show loading state
+        showNotification('info', 'Processing your order...');
+        
+        // Add to cart and redirect to checkout
+        const payload = {
+            product_id: productId,
+            quantity: quantity
+        };
+        
+        if (variantId) {
+            payload.variant_id = variantId;
+        }
+        
+        fetch('{{ route("cart.add") }}', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRF-TOKEN': csrfToken,
+                'Accept': 'application/json'
+            },
+            body: JSON.stringify(payload)
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                showNotification('success', 'Added to cart! Redirecting to checkout...');
+                // Small delay to show the success message
+                setTimeout(() => {
+                    window.location.href = '{{ route("checkout") }}';
+                }, 1000);
+            } else {
+                showNotification('error', data.message || 'Failed to add item to cart');
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            showNotification('error', 'Failed to process order. Please try again.');
+        });
+    }
+    
+    // Execute pending action after login
+    function executePendingAction() {
+        if (!pendingAction) return;
+        
+        switch(pendingAction.type) {
+            case 'addToCart':
+                addToCart(pendingAction.productId, pendingAction.quantity, pendingAction.variantId);
+                break;
+            case 'addToWishlist':
+                addToWishlist(pendingAction.productId);
+                break;
+            case 'buyNow':
+                buyNow(pendingAction.productId, pendingAction.quantity, pendingAction.variantId);
+                break;
+        }
+        
+        // Clear pending action
+        pendingAction = null;
+    }
+    
     function showNotification(type, message) {
         // Create toast notification
         const toastHtml = `
@@ -945,14 +1128,44 @@
     
     // Handle add to cart buttons
     document.addEventListener('DOMContentLoaded', function() {
+        // Check for pending actions from sessionStorage
+        const storedAction = sessionStorage.getItem('pendingAction');
+        
+        if (storedAction && isAuthenticated) {
+            try {
+                pendingAction = JSON.parse(storedAction);
+                sessionStorage.removeItem('pendingAction');
+                
+                // Execute the pending action after a short delay
+                setTimeout(() => {
+                    executePendingAction();
+                }, 500);
+            } catch (e) {
+                console.error('Error parsing pending action:', e);
+            }
+        }
+        
         // Add to cart buttons
         document.querySelectorAll('.add-to-cart-btn').forEach(button => {
             button.addEventListener('click', function(e) {
                 e.preventDefault();
                 e.stopPropagation();
                 const productId = this.dataset.productId;
+                const variantId = this.dataset.variantId;
                 const quantity = document.getElementById('quantity')?.value || 1;
-                addToCart(productId, quantity);
+                addToCart(productId, quantity, variantId);
+            });
+        });
+        
+        // Buy now buttons
+        document.querySelectorAll('.buy-now-btn').forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                const productId = this.dataset.productId;
+                const variantId = this.dataset.variantId;
+                const quantity = document.getElementById('quantity')?.value || 1;
+                buyNow(productId, quantity, variantId);
             });
         });
         
@@ -969,16 +1182,22 @@
     
     // Modal Functions
     function switchToRegister() {
-        $('#loginModal').modal('hide');
+        const loginModal = bootstrap.Modal.getInstance(document.getElementById('loginModal'));
+        if (loginModal) loginModal.hide();
+        
         setTimeout(() => {
-            $('#registerModal').modal('show');
+            const registerModal = new bootstrap.Modal(document.getElementById('registerModal'));
+            registerModal.show();
         }, 300);
     }
     
     function switchToLogin() {
-        $('#registerModal').modal('hide');
+        const registerModal = bootstrap.Modal.getInstance(document.getElementById('registerModal'));
+        if (registerModal) registerModal.hide();
+        
         setTimeout(() => {
-            $('#loginModal').modal('show');
+            const loginModal = new bootstrap.Modal(document.getElementById('loginModal'));
+            loginModal.show();
         }, 300);
     }
     
@@ -1025,27 +1244,29 @@
             },
             body: formData
         })
-        .then(response => response.json())
-        .then(data => {
-            if (data.success || response.redirected) {
-                // Login successful
-                showNotification('success', 'Login successful! Redirecting...');
-                setTimeout(() => {
-                    window.location.reload();
-                }, 1000);
-            } else {
-                // Show error
-                errorDiv.textContent = data.message || 'Invalid credentials. Please try again.';
-                errorDiv.classList.remove('d-none');
-                
-                // Re-enable submit button
-                submitBtn.disabled = false;
-                submitBtn.innerHTML = '<i class="fas fa-sign-in-alt me-2"></i>Login';
+        .then(response => {
+            if (response.ok) {
+                return response.json();
             }
+            throw new Error('Login failed');
+        })
+        .then(data => {
+            // Login successful
+            showNotification('success', 'Login successful! Redirecting...');
+            
+            // Check if there's a pending action
+            if (pendingAction) {
+                // Store pending action in sessionStorage to execute after reload
+                sessionStorage.setItem('pendingAction', JSON.stringify(pendingAction));
+            }
+            
+            setTimeout(() => {
+                window.location.reload();
+            }, 1000);
         })
         .catch(error => {
             console.error('Error:', error);
-            errorDiv.textContent = 'An error occurred. Please try again.';
+            errorDiv.textContent = error.message === 'Login failed' ? 'Invalid credentials. Please try again.' : 'An error occurred. Please try again.';
             errorDiv.classList.remove('d-none');
             
             // Re-enable submit button

@@ -45,7 +45,9 @@
                                                 <div>
                                                     <h6 class="mb-1 fw-semibold">{{ $item->product->name }}</h6>
                                                     <small class="text-muted d-block">
-                                                        @if($item->variant_info)
+                                                        @if($item->variant)
+                                                            <span class="badge bg-success me-2">{{ $item->variant->weight }}</span>
+                                                        @elseif($item->variant_info)
                                                             <span class="badge bg-success me-2">{{ $item->variant_info }}</span>
                                                         @endif
                                                         @if($item->product->tags)
@@ -128,7 +130,7 @@
                             </div>
                             <div class="d-flex justify-content-between mb-2">
                                 <span class="text-muted">Shipping</span>
-                                <span class="fw-semibold">
+                                <span class="fw-semibold" id="shipping">
                                     @if($total >= 1000)
                                         <span class="text-success">FREE</span>
                                     @else
@@ -243,11 +245,13 @@
                             <h6 class="card-title fw-semibold">{{ $product->name }}</h6>
                             <p class="card-text text-muted small">{{ Str::limit($product->description, 60) }}</p>
                             <div class="d-flex justify-content-between align-items-center">
-                                <span class="h6 fw-bold text-success mb-0">{{ $product->price_range }}</span>
-                                <button class="btn btn-sm btn-outline-success rounded-pill" 
-                                        onclick="addToCart({{ $product->id }}, {{ $product->defaultVariant ? $product->defaultVariant->id : 'null' }})">
-                                    <i class="fas fa-plus"></i>
-                                </button>
+                                <div>
+                                    <span class="h6 fw-bold text-success mb-0">{{ $product->display_250gm_price }}</span>
+                                    <small class="text-muted d-block">250gm</small>
+                                </div>
+                                <a href="{{ route('product.show', $product->slug) }}" class="btn btn-sm btn-outline-success rounded-pill">
+                                    <i class="fas fa-eye"></i> View
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -496,6 +500,12 @@ function updateCartUI(data) {
         document.getElementById('tax').textContent = `₹${tax.toLocaleString('en-IN', {minimumFractionDigits: 2, maximumFractionDigits: 2})}`;
         document.getElementById('total').textContent = `₹${total.toLocaleString('en-IN', {minimumFractionDigits: 2, maximumFractionDigits: 2})}`;
         
+        // Update shipping display
+        const shippingElement = document.getElementById('shipping');
+        if (shippingElement) {
+            shippingElement.innerHTML = subtotal >= 1000 ? '<span class="text-success">FREE</span>' : '₹50.00';
+        }
+        
         // Update shipping info
         const shippingInfo = document.querySelector('.alert-info small');
         if (subtotal < 1000) {
@@ -543,10 +553,17 @@ function showNotification(type, message) {
 }
 
 function updateCartCount(count) {
-    const cartBadge = document.querySelector('.navbar .cart-count');
+    const cartBadge = document.querySelector('a[href="{{ route("cart") }}"] .badge');
     if (cartBadge) {
         cartBadge.textContent = count;
-        cartBadge.style.display = count > 0 ? 'inline-block' : 'none';
+    } else if (count > 0) {
+        const cartIcon = document.querySelector('a[href="{{ route("cart") }}"]');
+        if (cartIcon) {
+            const badge = document.createElement('span');
+            badge.className = 'badge';
+            badge.textContent = count;
+            cartIcon.appendChild(badge);
+        }
     }
 }
 

@@ -17,12 +17,9 @@
                 <div class="testimonial-card">
                     <div class="testimonial-card-inner">
                         <div class="testimonial-profile">
-                            <div class="testimonial-avatar">
-                                <img src="https://randomuser.me/api/portraits/women/42.jpg" alt="Sarah Johnson" class="rounded-circle">
-                            </div>
                             <div class="testimonial-info">
-                                <h5 class="mb-0">Sarah Johnson</h5>
-                                <p class="text-muted mb-0 small">Home Chef</p>
+                                <h5 class="mb-0">Priya Sharma</h5>
+                                <p class="text-muted mb-0 small">Homemaker, Mumbai</p>
                             </div>
                             <div class="testimonial-quote-icon">
                                 <i class="fas fa-quote-right text-success opacity-25 fa-2x"></i>
@@ -35,12 +32,11 @@
                             <i class="fas fa-star text-warning"></i>
                             <i class="fas fa-star text-warning"></i>
                         </div>
-                        <p class="testimonial-text">The red chili powder has completely transformed my cooking! The flavor depth is incredible - spicy but with complex notes that you just don't find in supermarket brands. Every dish I make now has this amazing authentic taste.</p>
+                        <p class="testimonial-text">Absolutely amazing red chili powder! My mother-in-law even said it tastes exactly like traditional homemade spices. Everyone in my family loves my cooking so much more now. The quality is completely authentic and the flavor is incredible!</p>
                         <div class="testimonial-product">
                             <div class="d-flex align-items-center">
-                                
                                 <div class="testimonial-product-info ms-2">
-                                    <h6 class="mb-0 small">Red Chili Powder</h6>
+                                    <h6 class="mb-0 small">Red Chili Powder - Lal Mirch</h6>
                                     <div class="text-success small"><i class="fas fa-check-circle me-1"></i>Verified Purchase</div>
                                 </div>
                             </div>
@@ -53,12 +49,9 @@
                 <div class="testimonial-card">
                     <div class="testimonial-card-inner">
                         <div class="testimonial-profile">
-                            <div class="testimonial-avatar">
-                                <img src="https://randomuser.me/api/portraits/men/33.jpg" alt="Michael Rodriguez" class="rounded-circle">
-                            </div>
                             <div class="testimonial-info">
-                                <h5 class="mb-0">Michael Rodriguez</h5>
-                                <p class="text-muted mb-0 small">Professional Chef</p>
+                                <h5 class="mb-0">Rajesh Kumar</h5>
+                                <p class="text-muted mb-0 small">Restaurant Owner, Delhi</p>
                             </div>
                             <div class="testimonial-quote-icon">
                                 <i class="fas fa-quote-right text-warning opacity-25 fa-2x"></i>
@@ -71,12 +64,11 @@
                             <i class="fas fa-star text-warning"></i>
                             <i class="fas fa-star text-warning"></i>
                         </div>
-                        <p class="testimonial-text">As a professional chef, I'm extremely particular about my ingredients. This turmeric powder exceeds my expectations in every way. The color is vibrant, the aroma is incredible, and it imparts a balanced flavor that elevates any dish. Worth every penny!</p>
+                        <p class="testimonial-text">I've been in the restaurant business for 15 years, but this turmeric powder surprised me completely! Such pure color and amazing aroma. My customers keep asking why the food tastes so much better today. I haven't found better quality anywhere than Flavearth.</p>
                         <div class="testimonial-product">
                             <div class="d-flex align-items-center">
-                              
                                 <div class="testimonial-product-info ms-2">
-                                    <h6 class="mb-0 small">Turmeric Powder</h6>
+                                    <h6 class="mb-0 small">Turmeric Powder - Haldi</h6>
                                     <div class="text-success small"><i class="fas fa-check-circle me-1"></i>Verified Purchase</div>
                                 </div>
                             </div>
@@ -89,12 +81,9 @@
                 <div class="testimonial-card">
                     <div class="testimonial-card-inner">
                         <div class="testimonial-profile">
-                            <div class="testimonial-avatar">
-                                <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Priya Patel" class="rounded-circle">
-                            </div>
                             <div class="testimonial-info">
-                                <h5 class="mb-0">Priya Patel</h5>
-                                <p class="text-muted mb-0 small">Food Blogger</p>
+                                <h5 class="mb-0">Anjali Gupta</h5>
+                                <p class="text-muted mb-0 small">IT Professional, Bangalore</p>
                             </div>
                             <div class="testimonial-quote-icon">
                                 <i class="fas fa-quote-right text-danger opacity-25 fa-2x"></i>
@@ -107,12 +96,11 @@
                             <i class="fas fa-star text-warning"></i>
                             <i class="fas fa-star-half-alt text-warning"></i>
                         </div>
-                        <p class="testimonial-text">I've tried countless spice brands for my cooking blog, and these products stand out dramatically. The freshness is immediately noticeable. The red chili powder has perfect heat balance and the turmeric's color makes my dishes pop on camera. My followers always ask where I get my spices!</p>
+                        <p class="testimonial-text">I'm a working professional and only cook on weekends. With Flavearth spices, it feels like I'm making my mother's cooking! Especially the coriander powder - such fresh aroma. My friends think I've become an expert cook. Thank you Flavearth!</p>
                         <div class="testimonial-product">
                             <div class="d-flex align-items-center">
-                             
                                 <div class="testimonial-product-info ms-2">
-                                    <h6 class="mb-0 small">Multiple Products</h6>
+                                    <h6 class="mb-0 small">Coriander Powder - Dhania</h6>
                                     <div class="text-success small"><i class="fas fa-check-circle me-1"></i>Verified Purchase</div>
                                 </div>
                             </div>
@@ -125,10 +113,9 @@
                 <div class="testimonial-card">
                     <div class="testimonial-card-inner">
                         <div class="testimonial-profile">
-                            
                             <div class="testimonial-info">
-                                <h5 class="mb-0">David Chen</h5>
-                                <p class="text-muted mb-0 small">Home Cook</p>
+                                <h5 class="mb-0">Suresh Reddy</h5>
+                                <p class="text-muted mb-0 small">Farmer, Andhra Pradesh</p>
                             </div>
                             <div class="testimonial-quote-icon">
                                 <i class="fas fa-quote-right text-success opacity-25 fa-2x"></i>
@@ -141,12 +128,43 @@
                             <i class="fas fa-star text-warning"></i>
                             <i class="fas fa-star text-warning"></i>
                         </div>
-                        <p class="testimonial-text">I was skeptical about whether premium spices would make a noticeable difference, but I'm completely convinced now. The turmeric powder makes my curries richer and more flavorful with an amazing golden color. Even my friends who don't normally enjoy spicy foods love dishes with these spices!</p>
+                        <p class="testimonial-text">Being a farmer myself, I was surprised by such quality spices! Red chili is very important in Andhra food. This is perfectly ground and gives authentic taste. My wife says this chili powder makes our traditional rice dishes perfect!</p>
                         <div class="testimonial-product">
                             <div class="d-flex align-items-center">
-                                
                                 <div class="testimonial-product-info ms-2">
-                                    <h6 class="mb-0 small">Turmeric Powder</h6>
+                                    <h6 class="mb-0 small">Red Chili Powder - Andhra Special</h6>
+                                    <div class="text-success small"><i class="fas fa-check-circle me-1"></i>Verified Purchase</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="testimonial-card-wrapper">
+                <div class="testimonial-card">
+                    <div class="testimonial-card-inner">
+                        <div class="testimonial-profile">
+                            <div class="testimonial-info">
+                                <h5 class="mb-0">Meera Joshi</h5>
+                                <p class="text-muted mb-0 small">Housewife, Pune</p>
+                            </div>
+                            <div class="testimonial-quote-icon">
+                                <i class="fas fa-quote-right text-info opacity-25 fa-2x"></i>
+                            </div>
+                        </div>
+                        <div class="testimonial-rating my-2">
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                        </div>
+                        <p class="testimonial-text">I live in Pune and my family loves spicy food. After using this garam masala powder, my children said it tastes like grandmother's cooking! Traditional flavor and fast delivery too. Highly recommend!</p>
+                        <div class="testimonial-product">
+                            <div class="d-flex align-items-center">
+                                <div class="testimonial-product-info ms-2">
+                                    <h6 class="mb-0 small">Garam Masala Powder</h6>
                                     <div class="text-success small"><i class="fas fa-check-circle me-1"></i>Verified Purchase</div>
                                 </div>
                             </div>

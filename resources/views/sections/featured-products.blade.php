@@ -9,7 +9,7 @@
 
         <div class="row g-4 justify-content-center">
             @foreach($featuredProducts as $product)
-            <div class="col-md-5">
+            <div class="col-12 col-sm-6 col-lg-5">
                 <div class="product-card h-100">
                     <a href="{{ route('product.show', $product->slug) }}" class="text-decoration-none d-block h-100">
                         <div class="card border-0 rounded-4 shadow-sm h-100 product-hover">
@@ -40,9 +40,9 @@
                                 <h3 class="h4 fw-bold mb-2 text-dark">{{ $product->name }}</h3>
                                 <p class="card-text text-muted mb-3">{{ Str::limit($product->description, 150) }}</p>
                                 <div class="product-details">
-                                    <div class="d-flex align-items-center mb-3">
+                                    <div class="d-flex flex-wrap align-items-center mb-3">
                                         @foreach($product->tags as $tag)
-                                        <div class="badge bg-light text-dark me-2">
+                                        <div class="badge bg-light text-dark me-2 mb-2">
                                             @if($tag == 'Organic')
                                                 <i class="fas fa-leaf me-1"></i>
                                             @elseif(str_contains($tag, 'Heat'))
@@ -57,11 +57,12 @@
                                         @endforeach
                                     </div>
                                 </div>
-                                <div class="d-flex justify-content-between align-items-center mt-4">
+                                <div class="d-flex flex-column flex-sm-row justify-content-between align-items-start align-items-sm-center mt-4 gap-3">
                                     <div class="product-price">
-                                        <span class="h4 fw-bold text-success mb-0">{{ $product->price_range }}</span>
+                                        <span class="h4 fw-bold text-success mb-0">{{ $product->display_250gm_price }}</span>
+                                        <small class="text-muted d-block">250gm</small>
                                     </div>
-                                    <button class="btn btn-success rounded-pill px-4" onclick="event.preventDefault(); event.stopPropagation(); window.location.href='{{ route('product.show', $product->slug) }}';">
+                                    <button class="btn btn-success rounded-pill px-4 w-100 w-sm-auto" onclick="event.preventDefault(); event.stopPropagation(); window.location.href='{{ route('product.show', $product->slug) }}';">
                                         <i class="fas fa-shopping-cart me-2"></i>View Options
                                     </button>
                                 </div>
@@ -130,6 +131,44 @@
     to {
         opacity: 1;
         transform: translateY(0);
+    }
+}
+
+/* Mobile Responsive Styles */
+@media (max-width: 575.98px) {
+    .product-image-container {
+        height: 200px;
+    }
+    
+    .card-body {
+        padding: 1.25rem !important;
+    }
+    
+    .h4 {
+        font-size: 1.25rem;
+    }
+    
+    .badge {
+        font-size: 0.75rem;
+        padding: 0.25rem 0.5rem;
+    }
+    
+    .btn {
+        font-size: 0.875rem;
+    }
+    
+    .product-hover:hover {
+        transform: none;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .display-5 {
+        font-size: 2rem;
+    }
+    
+    .lead {
+        font-size: 1rem;
     }
 }
 </style>

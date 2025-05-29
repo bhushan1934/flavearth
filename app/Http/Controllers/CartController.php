@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Cart;
 use App\Models\CartItem;
 use App\Models\Product;
+use App\Models\ProductVariant;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -23,60 +24,78 @@ class CartController extends Controller
     {
         $request->validate([
             'product_id' => 'required|exists:products,id',
-            'variant_id' => 'required|exists:product_variants,id',
+            'variant_id' => 'nullable|exists:product_variants,id',
             'quantity' => 'required|integer|min:1'
         ]);
 
         $product = Product::findOrFail($request->product_id);
-        $variant = ProductVariant::findOrFail($request->variant_id);
+        $variant = null;
         
-        // Validate that variant belongs to product
-        if ($variant->product_id !== $product->id) {
-            return response()->json([
-                'success' => false,
-                'message' => 'Invalid product variant'
-            ], 400);
-        }
-        
-        // Check if variant is available and in stock
-        if (!$variant->is_available || $variant->stock_quantity < $request->quantity) {
-            return response()->json([
-                'success' => false,
-                'message' => 'Product variant is out of stock or insufficient quantity available'
-            ], 400);
+        if ($request->variant_id) {
+            $variant = ProductVariant::findOrFail($request->variant_id);
+            
+            // Validate that variant belongs to product
+            if ($variant->product_id !== $product->id) {
+                return response()->json([
+                    'success' => false,
+                    'message' => 'Invalid product variant'
+                ], 400);
+            }
+            
+            // Check if variant is available and in stock
+            if (!$variant->is_available || $variant->stock_quantity < $request->quantity) {
+                return response()->json([
+                    'success' => false,
+                    'message' => 'Product variant is out of stock or insufficient quantity available'
+                ], 400);
+            }
+        } else {
+            // Check product stock if no variant
+            if ($product->stock_quantity < $request->quantity) {
+                return response()->json([
+                    'success' => false,
+                    'message' => 'Product is out of stock or insufficient quantity available'
+                ], 400);
+            }
         }
 
         $cart = $this->getOrCreateCart();
         
         // Check if item already exists in cart (same product and variant)
-        $cartItem = $cart->items()
-            ->where('product_id', $product->id)
-            ->where('variant_id', $variant->id)
-            ->first();
+        $cartItemQuery = $cart->items()->where('product_id', $product->id);
+        if ($variant) {
+            $cartItemQuery->where('variant_id', $variant->id);
+        } else {
+            $cartItemQuery->whereNull('variant_id');
+        }
+        $cartItem = $cartItemQuery->first();
         
         if ($cartItem) {
             // Update quantity
             $newQuantity = $cartItem->quantity + $request->quantity;
             
-            if ($newQuantity > $variant->stock_quantity) {
+            $stockLimit = $variant ? $variant->stock_quantity : $product->stock_quantity;
+            if ($newQuantity > $stockLimit) {
                 return response()->json([
                     'success' => false,
                     'message' => 'Cannot add more items. Stock limit reached.'
                 ], 400);
             }
             
+            $price = $variant ? $variant->price : $product->price;
             $cartItem->update([
                 'quantity' => $newQuantity,
-                'price' => $variant->price
+                'price' => $price
             ]);
         } else {
             // Add new item
+            $price = $variant ? $variant->price : $product->price;
             $cart->items()->create([
                 'product_id' => $product->id,
-                'variant_id' => $variant->id,
-                'variant_info' => $variant->weight,
+                'variant_id' => $variant ? $variant->id : null,
+                'variant_info' => $variant ? $variant->weight : null,
                 'quantity' => $request->quantity,
-                'price' => $variant->price
+                'price' => $price
             ]);
         }
         

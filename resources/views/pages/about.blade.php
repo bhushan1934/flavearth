@@ -66,9 +66,9 @@
             <div class="col-lg-6">
                 <div class="company-image-container">
                     <div class="main-image">
-                        <img src="https://via.placeholder.com/600x500/228B22/FFFFFF?text=Flavearth+Spice+Company" alt="Flavearth Company" class="img-fluid rounded-4 shadow-lg">
+                        <img src="{{ asset('images/categories/Export.png') }}" alt="Flavearth Company" class="img-fluid rounded-4 shadow-lg">
                     </div>
-                    <div class="floating-elements">
+                    {{-- <div class="floating-elements">
                         <div class="floating-spice spice-1">
                             <img src="{{ asset('images/categories/rc.png') }}" alt="Red Chili" class="rounded-circle" width="80">
                         </div>
@@ -78,7 +78,7 @@
                         <div class="floating-spice spice-3">
                             <img src="{{ asset('images/categories/organic-icon.png') }}" alt="Organic" class="rounded-circle" width="50">
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         </div>

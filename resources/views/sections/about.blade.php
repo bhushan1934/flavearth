@@ -3,35 +3,35 @@
         <div class="row align-items-center g-5">
             <div class="col-lg-6 order-lg-1 order-2">
                 <div class="about-content">
-                    <span class="badge bg-primary-light text-primary mb-3 px-3 py-2 rounded-pill">Our Journey</span>
-                    <h2 class="display-5 fw-bold mb-4">Our Story</h2>
+                    <span class="badge bg-primary-light text-primary mb-3 px-3 py-2 rounded-pill">About Flavearth</span>
+                    <h2 class="display-5 fw-bold mb-4">The Flavearth Story</h2>
                     <div class="separator mb-4"></div>
                     
-                    <p class="lead mb-4">From international export markets to your kitchen — bringing premium spice excellence to local customers.</p>
+                    <p class="lead mb-4">Flavearth - From international export markets to your kitchen — bringing premium spice excellence to local customers.</p>
                     
                     <div class="about-text">
-                        <p class="mb-4">For over a decade, we've been proudly exporting our premium quality spices to various countries worldwide, earning recognition for exceptional standards and authentic flavor profiles. Our red chili and turmeric powders have graced professional kitchens and homes across continents.</p>
+                        <p class="mb-4">For over a decade, Flavearth has been proudly exporting premium quality spices to various countries worldwide, earning recognition for exceptional standards and authentic flavor profiles. Our Flavearth red chili and turmeric powders have graced professional kitchens and homes across continents.</p>
                         
-                        <p class="mb-4">Today, we're excited to bring that same export-quality excellence directly to local customers. We believe everyone deserves access to the finest spices — the very same products trusted by international markets and celebrated chefs globally.</p>
+                        <p class="mb-4">Today, Flavearth is excited to bring that same export-quality excellence directly to local customers. We believe everyone deserves access to the finest Flavearth spices — the very same products trusted by international markets and celebrated chefs globally.</p>
                         
-                        <p class="mb-4">Our commitment remains unwavering: delivering meticulously sourced, traditionally processed spices that transform ordinary meals into extraordinary culinary experiences. Each product in our collection represents our dedication to quality, purity, and the preservation of authentic flavors.</p>
+                        <p class="mb-4">Flavearth's commitment remains unwavering: delivering meticulously sourced, traditionally processed spices that transform ordinary meals into extraordinary culinary experiences. Each Flavearth product in our collection represents our dedication to quality, purity, and the preservation of authentic flavors.</p>
                         
-                        <div class="d-flex align-items-center mb-4 mt-5">
-                            <div class="d-flex me-4">
+                        <div class="d-flex flex-wrap align-items-center mb-4 mt-5 gap-3">
+                            <div class="d-flex me-3 stats-item">
                                 <span class="display-6 text-primary fw-bold me-2">10+</span>
                                 <span class="d-flex flex-column justify-content-center">
                                     <span class="fw-bold">Years of</span>
                                     <span>Excellence</span>
                                 </span>
                             </div>
-                            <div class="d-flex me-4">
+                            <div class="d-flex me-3 stats-item">
                                 <span class="display-6 text-primary fw-bold me-2">25+</span>
                                 <span class="d-flex flex-column justify-content-center">
                                     <span class="fw-bold">Countries</span>
                                     <span>Served</span>
                                 </span>
                             </div>
-                            <div class="d-flex">
+                            <div class="d-flex stats-item">
                                 <span class="display-6 text-primary fw-bold me-2">100%</span>
                                 <span class="d-flex flex-column justify-content-center">
                                     <span class="fw-bold">Premium</span>
@@ -41,11 +41,11 @@
                         </div>
                     </div>
                     
-                    <div class="mt-4">
-                        <a href="{{ route('shop') }}" class="btn btn-primary btn-lg rounded-pill px-5 me-3">
+                    <div class="mt-4 d-flex flex-wrap gap-3">
+                        <a href="{{ route('shop') }}" class="btn btn-primary btn-lg rounded-pill px-5">
                             Shop Now <i class="fas fa-arrow-right ms-2"></i>
                         </a>
-                        <a href="{{ route('about') }}" class="btn btn-outline-dark rounded-pill px-5">Learn More</a>
+                        <a href="{{ route('about') }}" class="btn btn-outline-dark btn-lg rounded-pill px-5">Learn More</a>
                     </div>
                 </div>
             </div>
@@ -132,6 +132,53 @@
 @media (max-width: 991.98px) {
     .about-badge {
         display: none;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .about-section {
+        padding: 40px 0;
+    }
+    
+    .display-5 {
+        font-size: 2rem;
+    }
+    
+    .display-6 {
+        font-size: 2rem;
+    }
+    
+    .lead {
+        font-size: 1rem;
+    }
+    
+    .stats-item {
+        flex-basis: 100%;
+        justify-content: center;
+        margin-bottom: 1rem;
+    }
+    
+    .btn-lg {
+        padding: 0.5rem 2rem;
+        font-size: 1rem;
+    }
+    
+    .about-content p {
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .display-5 {
+        font-size: 1.75rem;
+    }
+    
+    .display-6 {
+        font-size: 1.5rem;
+    }
+    
+    .btn {
+        width: 100%;
     }
 }
 </style>

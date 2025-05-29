@@ -6,7 +6,7 @@
             <div class="footer-main">
                 <div class="row g-5">
                     <!-- Company Info -->
-                    <div class="col-lg-4">
+                    <div class="col-lg-4 col-md-12 mb-4 mb-lg-0">
                         <div class="footer-brand">
                             <div class="brand-container">
                                 <div class="brand-]">
@@ -34,7 +34,7 @@
                     </div>
 
                     <!-- Quick Links -->
-                    <div class="col-lg-2 col-md-6">
+                    <div class="col-lg-2 col-md-6 col-sm-6 mb-4 mb-lg-0">
                         <div class="footer-section">
                             <h4 class="section-title">
                                 <i class="fas fa-link me-2"></i>Quick Links
@@ -50,7 +50,7 @@
                     </div>
 
                     <!-- Products -->
-                    <div class="col-lg-2 col-md-6">
+                    <div class="col-lg-2 col-md-6 col-sm-6 mb-4 mb-lg-0">
                         <div class="footer-section">
                             <h4 class="section-title">
                                 <i class="fas fa-seedling me-2"></i>Our Products
@@ -66,7 +66,7 @@
                     </div>
 
                     <!-- Contact Info -->
-                    <div class="col-lg-4">
+                    <div class="col-lg-4 col-md-12">
                         <div class="footer-section">
                             <h4 class="section-title">
                                 <i class="fas fa-headset me-2"></i>Get In Touch
@@ -120,19 +120,26 @@
     <div class="footer-bottom">
         <div class="container">
             <div class="row align-items-center py-4">
-                <div class="col-lg-6">
+                <div class="col-lg-6 text-center text-lg-start">
                     <div class="copyright">
                         <p class="mb-0">&copy; 2024 <strong>Flavearth Private Limited</strong>. All rights reserved.</p>
                         <p class="tagline mb-0">Bringing authentic Indian spices to the world</p>
                     </div>
                 </div>
-                <div class="col-lg-6">
+                <div class="col-lg-6 text-center text-lg-end">
                     <div class="footer-bottom-links">
                         <a href="#" class="bottom-link">Terms & Conditions</a>
                         <a href="#" class="bottom-link">Privacy Policy</a>
                         <a href="#" class="bottom-link">Cookie Policy</a>
                         <a href="#" class="bottom-link">Support</a>
                     </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 text-center py-3 border-top border-secondary border-opacity-25">
+                    <p class="developer-credit mb-0">
+                        Developed by <a href="https://techssup.com" target="_blank" rel="noopener noreferrer" class="developer-link">Techssup</a>
+                    </p>
                 </div>
             </div>
         </div>
@@ -431,15 +438,41 @@
 
         /* Footer Bottom */
         .footer-bottom {
-            background: rgba(0, 0, 0, 0.3);
+            background: linear-gradient(135deg, #1a1a2e 0%, #0f0f1e 100%);
             color: rgba(255, 255, 255, 0.8);
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-top: 2px solid rgba(40, 167, 69, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .footer-bottom::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(40, 167, 69, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 50%, rgba(32, 201, 151, 0.1) 0%, transparent 50%);
+            pointer-events: none;
         }
 
+        .copyright {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .copyright strong {
+            color: #28a745;
+            font-weight: 700;
+        }
+        
         .copyright .tagline {
-            color: rgba(255, 255, 255, 0.6);
+            color: rgba(255, 255, 255, 0.7);
             font-style: italic;
             font-size: 0.9rem;
+            margin-top: 5px;
         }
 
         .footer-bottom-links {
@@ -458,6 +491,40 @@
 
         .bottom-link:hover {
             color: #28a745;
+        }
+        
+        /* Developer Credit */
+        .developer-credit {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.6);
+        }
+        
+        .developer-link {
+            color: #20c997;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .developer-link:hover {
+            color: #28a745;
+            text-decoration: none;
+        }
+        
+        .developer-link::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #28a745;
+            transition: width 0.3s ease;
+        }
+        
+        .developer-link:hover::after {
+            width: 100%;
         }
 
         /* Back to Top */
@@ -496,6 +563,10 @@
 
         /* Responsive Design */
         @media (max-width: 991.98px) {
+            .main-footer {
+                padding: 60px 0 0;
+            }
+            
             .brand-container {
                 flex-direction: column;
                 text-align: center;
@@ -514,16 +585,34 @@
             .section-title-large {
                 font-size: 2rem;
             }
+            
+            .footer-section {
+                padding: 20px 0;
+            }
         }
 
         @media (max-width: 767.98px) {
+            .main-footer {
+                padding: 40px 0 0;
+            }
+            
             .brand-title {
                 font-size: 2rem;
+            }
+            
+            .brand-description {
+                font-size: 1rem;
+                margin: 15px 0;
             }
             
             .contact-card {
                 flex-direction: column;
                 text-align: center;
+                padding: 20px;
+            }
+            
+            .contact-icon {
+                margin: 0 auto 15px;
             }
             
             .footer-features {
@@ -534,9 +623,63 @@
                 font-size: 1.8rem;
             }
             
+            .section-title {
+                font-size: 1.2rem;
+                margin-bottom: 20px;
+            }
+            
             .trust-badges {
                 flex-direction: column;
                 align-items: center;
+                width: 100%;
+            }
+            
+            .trust-badge {
+                width: 100%;
+                max-width: 200px;
+                justify-content: center;
+            }
+            
+            .footer-bottom {
+                text-align: center;
+            }
+            
+            .copyright {
+                margin-bottom: 20px;
+            }
+            
+            .back-to-top {
+                bottom: 20px;
+                right: 20px;
+                width: 50px;
+                height: 50px;
+                font-size: 1.2rem;
+            }
+        }
+        
+        @media (max-width: 575.98px) {
+            .brand-title {
+                font-size: 1.75rem;
+            }
+            
+            .footer-link {
+                font-size: 0.9rem;
+            }
+            
+            .contact-info h6 {
+                font-size: 1rem;
+            }
+            
+            .contact-info p {
+                font-size: 0.9rem;
+            }
+            
+            .bottom-link {
+                font-size: 0.85rem;
+            }
+            
+            .footer-bottom-links {
+                gap: 15px;
             }
         }
     </style>

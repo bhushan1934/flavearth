@@ -7,9 +7,9 @@
             <div class="row align-items-center g-5">
                 <div class="col-lg-6 order-lg-1 order-2">
                     <div class="hero-content">
-                        <span class="badge bg-primary-light text-primary mb-3 px-3 py-2 rounded-pill">Premium Quality Spices</span>
-                        <h1 class="display-4 fw-bold mb-3">Elevate Your <span class="text-primary">Culinary Journey</span></h1>
-                        <p class="lead mb-4">Discover our handpicked collection of premium spices sourced from around the world to transform everyday meals into extraordinary culinary experiences.</p>
+                        <span class="badge bg-primary-light text-primary mb-3 px-3 py-2 rounded-pill">Flavearth Premium Organic Spices</span>
+                        <h1 class="display-4 fw-bold mb-3">Welcome to <span class="text-primary">Flavearth</span> - Premium Organic Spices & Natural Food Products</h1>
+                        <p class="lead mb-4">Discover Flavearth's handpicked collection of premium organic spices and natural food products sourced directly from Indian farmers. Transform everyday meals into extraordinary culinary experiences with authentic, high-quality Flavearth spices.</p>
                         <div class="d-flex flex-wrap gap-3">
                             <a href="{{ route('shop') }}" class="btn btn-success btn-lg px-4 rounded-pill">
                                 Explore Collection
@@ -33,10 +33,10 @@
                 <div class="col-lg-6 order-lg-2 order-1 text-center text-lg-end">
                     <div class="position-relative">
                         <div class="hero-image-container">
-                            <img src="{{ asset('images/categories/hero.png') }}" alt="Premium Spices Collection" class="img-fluid rounded-4 hero-main-image" onerror="this.onerror=null; this.src='https://via.placeholder.com/800x600/FF5722/FFFFFF?text=Premium+Spices'; this.className='img-fluid rounded-4'">
+                            <img src="{{ asset('images/products/hero1.png') }}" alt="Premium Spices Collection" class="img-fluid rounded-4 hero-main-image" onerror="this.onerror=null; this.src='https://via.placeholder.com/800x600/FF5722/FFFFFF?text=Premium+Spices'; this.className='img-fluid rounded-4'">
                             
                             <!-- Decorative elements -->
-                            <div class="position-absolute hero-floating-spice hero-spice-1">
+                            {{-- <div class="position-absolute hero-floating-spice hero-spice-1">
                                 <div class=" p-3">
                                     <img src="{{ asset('images/categories/rc.png') }}" class="rounded-circle" alt="chilly" width="240">
                                 </div>
@@ -45,12 +45,12 @@
                                 <div class=" p-3">
                                     <img src="{{ asset('images/categories/turmeric.png') }}" class="rounded-circle" alt="turmeric" width="200">
                                 </div>
-                            </div>
-                            <div class="position-absolute hero-floating-spice hero-spice-3">
+                            </div> --}}
+                            {{-- <div class="position-absolute hero-floating-spice hero-spice-3">
                                 <div class="p-3">
                                     <img src="{{ asset('images/categories/organic-icon.png') }}" class="rounded-circle" alt="organic" width="120">
                                 </div>
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
                 </div>
@@ -65,6 +65,7 @@
         min-height: 85vh;
         display: flex;
         align-items: center;
+        overflow-x: hidden;
     }
 
     .bg-gradient-primary-light {
@@ -98,22 +99,25 @@
     }
 
     .hero-spice-1 {
-        top: 0%;
-        left:-20%;
+        top: -30%;
+        left: -10;
         animation: float1 8s ease-in-out infinite;
-        rotate: 90%
+        rotate: 90%;
+        transform: translateX(-50%);
     }
 
     .hero-spice-2 {
         top:10%;
-        right: -10%;
+        right: 0;
         animation: float2 7s ease-in-out infinite;
+        transform: translateX(30%);
     }
 
     .hero-spice-3 {
-        bottom: 10%;
-        left: -10%;
+        bottom: -30%;
+        left: -50;
         animation: float3 6s ease-in-out infinite;
+        transform: translateX(-30%);
     }
 
     @keyframes float1 {

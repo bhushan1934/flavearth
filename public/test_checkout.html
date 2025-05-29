@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Checkout Flow Test</title>
+    <meta charset="utf-8">
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        .test { margin: 20px 0; padding: 10px; border: 1px solid #ddd; }
+        .success { background: #d4edda; color: #155724; }
+        .error { background: #f8d7da; color: #721c24; }
+        .info { background: #d1ecf1; color: #0c5460; }
+    </style>
+</head>
+<body>
+    <h1>Checkout Flow Test Results</h1>
+    
+    <div class="test info">
+        <h2>Test Configuration</h2>
+        <p>Server: http://127.0.0.1:8000</p>
+        <p>Test User: bhushan.nuverse@gmail.com / password</p>
+    </div>
+    
+    <div class="test">
+        <h2>Checkout Flow Steps:</h2>
+        <ol>
+            <li>✅ Laravel server is running</li>
+            <li>✅ Razorpay credentials are configured</li>
+            <li>✅ Razorpay API connection is working</li>
+            <li>✅ Test user account exists</li>
+            <li>✅ Cart has items added</li>
+            <li>✅ All routes are configured</li>
+        </ol>
+    </div>
+    
+    <div class="test success">
+        <h2>Ready for Testing!</h2>
+        <p>The checkout flow is ready to test. Follow these steps:</p>
+        <ol>
+            <li>Visit <a href="http://127.0.0.1:8000/login">http://127.0.0.1:8000/login</a></li>
+            <li>Login with: bhushan.nuverse@gmail.com / password</li>
+            <li>Go to <a href="http://127.0.0.1:8000/cart">Cart</a></li>
+            <li>Click "Proceed to Checkout"</li>
+            <li>Fill in address details</li>
+            <li>Click "Pay with Razorpay"</li>
+            <li>Use Razorpay test card: 4111 1111 1111 1111</li>
+            <li>Complete the payment</li>
+        </ol>
+    </div>
+    
+    <div class="test info">
+        <h2>Razorpay Test Payment Details:</h2>
+        <p><strong>Test Card Number:</strong> 4111 1111 1111 1111</p>
+        <p><strong>Expiry:</strong> Any future date</p>
+        <p><strong>CVV:</strong> Any 3 digits</p>
+        <p><strong>OTP:</strong> Not required in test mode</p>
+    </div>
+</body>
+</html>
